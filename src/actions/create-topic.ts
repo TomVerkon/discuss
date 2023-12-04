@@ -1,7 +1,7 @@
 'use server';
 import { auth } from '@/auth';
 import { db } from '@/db';
-import paths from '@/path';
+import paths from '@/paths';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import type { Topic } from 'prisma/prisma-client';
