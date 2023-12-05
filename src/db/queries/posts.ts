@@ -7,6 +7,9 @@ export type PostWithData = Post & {
   _count: { comments: number };
 };
 
+// alternative to above type definition
+//export type PostWithData = Awaited<ReturnType<typeof fetchPostsByTopicSlug>>[number];
+
 export function fetchPostsByTopicSlug(
   topicSlug: string
 ): Promise<PostWithData[]> {
