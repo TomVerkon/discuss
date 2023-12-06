@@ -1,25 +1,28 @@
 import Link from 'next/link';
-//import PostShow from '@/components/posts/post-show';
 //import CommentList from '@/components/comments/comment-list';
 //import CommentCreateForm from '@/components/comments/comment-create-form';
+import PostShow from '@/components/post/post-show';
 import paths from '@/paths';
 
 interface PostShowPageProps {
   params: {
-    slug: string;
+    topicSlug: string;
     postId: string;
   };
 }
 
 export default async function PostShowPage({ params }: PostShowPageProps) {
-  const { slug, postId } = params;
+  const { topicSlug, postId } = params;
+  console.log('slug:', topicSlug);
 
   return (
     <div className='space-y-3'>
-      <Link className='underline decoration-solid' href={paths.topicShow(slug)}>
-        {'< '}Back to {slug}
+      <Link
+        className='underline decoration-solid'
+        href={paths.topicShow(topicSlug)}>
+        {'< '}Back to {topicSlug}
       </Link>
-      {/* <PostShow /> */}
+      <PostShow postId={postId} />
       {/* <CommentCreateForm postId={postId} startOpen /> */}
       {/* <CommentList comments={comments} /> */}
     </div>
